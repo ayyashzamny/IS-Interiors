@@ -15,14 +15,14 @@
   
   #typing-effect {
     display: inline-block;
-    border-right: 0.04em solid #404040;
+    border-right: 0.04em solid #ffffff;
     white-space: nowrap;
     overflow: hidden;
     animation: typing 2s steps(40, end), blink-caret 0.5s step-end infinite alternate;
     font-size: 60px;
     margin-top: -2px;
     margin-left: 45px;
-    color: #404040;
+    color: #ffffff;
   }
   
   .deleting-effect {
@@ -50,33 +50,42 @@
     font-size: 80px;
     margin-top: 60px;
     margin-left: 45px;
-    color: #404040;
+    color: #ffffff;
   }
   
   #contact{
       border-radius: 50px;
       text-align: center;
       font-size: 1.5vw;
-      background-color: #000080 ;
-      color: aliceblue;
+      background-color: #ffffff ;
+      color: #000080;
       border-bottom: 0 solid;
       padding: 15px 25px;
       margin-right: 150px;
       float: right;
       margin-top: 200px;
+      font-weight: 700;
   }
 
-  
+  .all{
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+    padding: 0.7px;
+  }
   
   #contact:hover{
-    background-color: #6e91fc ;
-    
+    background-color: #ffffff;
+    opacity: 70%;
   }
+  
 
   .elemnts{
     margin-left: 100px;
     min-height: 360px; /* Set a minimum height */
   }
+
+
 
   
   /* Counting effect */
@@ -95,10 +104,10 @@
   .container {
     width: 10vw;
     height: 10vw;
-    background-color: #000080;
-    color: white;
+    background-color: #ffffff;
+    color: #000080;
     border-radius: 10px;
-    margin: 100px;
+    margin: 10vw;
     margin-top: 20px;
     margin-bottom: 30px;
     display: flex;
@@ -116,12 +125,12 @@
   }
   
   .container .num {
-    font-size: 4em;
+    font-size: 4vw;
     font-weight: bold;
   }
   
   .container .text {
-    font-size: 1.2em;
+    font-size: 1vw;
     text-transform: uppercase;
   }
 
@@ -132,7 +141,7 @@
     text-align: center;
     color: #000080;
     font-weight: bold;
-    font-size: 7vb;
+    font-size: 2.7vw;
     margin-top: 80px;
 
   }
@@ -188,7 +197,7 @@
   
   .whytext {
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -239,3 +248,4 @@
     width: 35vw;
     border-radius: 10%;
   }
+

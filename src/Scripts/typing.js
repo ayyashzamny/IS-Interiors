@@ -1,4 +1,4 @@
-const words = ['Awards', 'Interior Designing', 'Exterior Designing'];
+const words = ['Awards', 'Interior Designings', 'Exterior Designings'];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;

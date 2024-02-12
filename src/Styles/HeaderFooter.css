@@ -10,9 +10,9 @@
 }
 :root{
   --bg-color: #ffff;
---second-bg-color: #41644a;
---text-color: #f2e3db;
---main-color: #000080;
+  --second-bg-color: #41644a;
+  --text-color: #f2e3db;
+  --main-color: #000080;
 }
 html{
   font-size: 62.5%;
@@ -20,7 +20,7 @@ html{
 }
 body{
   background: var(--bg-color);
-color: var(--text-color);
+  color: var(--text-color);
 }
 section{
   min-height: 100vh;
@@ -37,6 +37,7 @@ header{
   justify-content: space-between;
   z-index: 100;
   height: 130px;
+
 }
 
 
