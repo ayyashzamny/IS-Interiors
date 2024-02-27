@@ -1,18 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Contact us</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/HeaderFooter.css">
+    <link rel="stylesheet" href="Styles/contact.css">
     <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
     <!-- Box icons -->
     <link
     href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     rel="stylesheet"
     />
+
 </head>
 <body>
 
@@ -50,16 +53,33 @@
         <i class="bx bx-menu" id="menu-icon"></i> -->
 
         <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="">Store</a>
-            <a href="">Contact Us</a>
+            <a href="./index.html" >Home</a>
+            <a href="./shop.html">Store</a>
+            <a href="./contactus.html" class="active">Contact Us</a>
         </nav>
     </header>
 
-    <!-- section -->
+    <h2 class="contact-title">Contact IS Interiors</h2>
 
+    <form class="contact-form" method="POST" action="BackEnd/inq_form.php">
 
-    <!-- footer  -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    
+        <label for="phone">Phone No:</label>
+        <input type="tel" id="phone" name="phone" required>
+    
+        <label for="inquiry">Inquiry:</label>
+        <textarea id="inquiry" name="inquiry" rows="4" required></textarea>
+    
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="reset" class="clear-btn">Clear</button>
+    </form>
+    
+
     <footer class="footer">  
 
         <div class="footer-main">
@@ -85,5 +105,9 @@
 
         </div>
     </footer>
+
+    
+   
+
 </body>
 </html>
