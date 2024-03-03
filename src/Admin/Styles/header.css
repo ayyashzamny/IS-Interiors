@@ -1,40 +1,66 @@
-    :root{
-    --bg-color: #ffff;
-    --text-color: #f2e3db;
-    --main-color: #000080;
+    :root {
+      --bg-color: #ffff;
+      --text-color: #f2e3db;
+      --main-color: #000080;
     }
+
     body {
       background-color: #f8f9fa;
-      color: #495057;
+      color: var(--main-color);
     }
+
     .navbar-custom {
       background-color: var(--main-color);
       height: 8rem;
       margin-bottom: 5rem;
       box-shadow: 0 1px 2px 0 black;
     }
+
     .navbar-custom .navbar-brand {
       font-family: 'Dancing Script';
       color: #ffffff;
       font-size: 2rem;
     }
+
     .navbar-custom .btn-logout {
-      background-color: transparent;
-      color: #ffffff;
+      background-color: lightgray;
+      color: var(--main-color);
       border: none;
       box-shadow: none;
       font-weight: bold;
+      border-radius: 1rem;
     }
+
     .navbar-custom .btn-logout:hover {
       box-shadow: 0 0 5px white;
     }
 
+    .top-container {
+      background-color: none;
+      width: 60%;
+      margin-left: 20%;
+    }
+
+    .top-container .top-buttons button:hover {
+      box-shadow: 1px 2px 3px 0 black;
+    }
+
     /* media queries */
     @media (max-width: 767.98px) {
-    .navbar-custom .navbar-brand {
-      font-size: 1.5rem;
+      .navbar-custom .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .navbar-custom .nav-item button {
+        font-size: .7rem;
+      }
+
+      .top-container {
+        width: 85%;
+        margin: auto;
+      }
+
+      .top-container .top-buttons button {
+        font-size: .6rem;
+      }
     }
-    .navbar-custom .nav-item button{
-      font-size: .7rem;
-    }
-  }

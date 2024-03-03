@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +8,38 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+  <!-- style sheets -->
   <link rel="stylesheet" href="Styles/header.css">
   <link rel="stylesheet" href="Styles/editProducts.css">
-</head>
-<body>
 
+</head>
+
+<body>
+  <!-- header -->
   <nav class="navbar navbar-expand-lg navbar-custom">
     <a class="navbar-brand ml-3" href="#">IS Interiors</a>
-    
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <button class="btn btn-logout">LOGOUT</button>
       </li>
     </ul>
   </nav>
-
-
-    <div class="top-container">
-        <div class="top-buttons d-flex justify-content-between my-5">
-            <button class="btn btn-lighter border font-weight-bold btn-lg w-25">Add Product</button>
-            <button class="btn btn-lighter border font-weight-bold btn-lg w-25">Edit Products</button>
-            <button class="btn btn-lighter border font-weight-bold btn-lg w-25">Inqueries</button>
-          </div>
+  <!-- buttons for pages -->
+  <div class="top-container">
+    <div class="top-buttons d-flex justify-content-between my-5">
+      <button class="btn btn-lighter border font-weight-bold btn-lg w-25">Add Product</button>
+      <button class="btn btn-lighter border font-weight-bold btn-lg w-25">Edit Products</button>
+      <button class="btn btn-lighter border font-weight-bold btn-lg w-25">Inqueries</button>
     </div>
-  
+  </div>
 
+  <!-- table -->
   <div class="container mt-4">
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
+            <th>Image</th>
             <th>Name</th>
             <th>Price</th>
             <th>Added Date</th>
@@ -50,6 +50,7 @@
         <tbody>
           <!-- Sample Data (Replace with dynamic data) -->
           <tr>
+            <td><img src="../img/award.jpg" alt=""></td>
             <td>Product 1</td>
             <td>$19.99</td>
             <td>2024-03-02</td>
@@ -57,6 +58,7 @@
             <td><button class="btn btn-delete btn-sm">delete</button></td>
           </tr>
           <tr>
+            <td><img src="../img/award.jpg" alt=""></td>
             <td>Product 2</td>
             <td>$29.99</td>
             <td>2024-03-01</td>
@@ -72,6 +74,7 @@
   <!-- Bootstrap JS and Popper.js -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
