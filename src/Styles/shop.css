@@ -1,7 +1,7 @@
 section{
     min-height: 100vh;
     margin: 0;
-    padding: 0 4rem;
+    padding: 0 5rem;
     justify-content: center;
     align-items: center;
 }
@@ -21,7 +21,7 @@ section{
 
 
 .bar{
-    margin: auto;
+    margin: 10rem auto;
     align-items: center;
     justify-content: center;
     height: 4.5rem;
@@ -67,11 +67,11 @@ section{
 
 .cont{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(5,1fr);
     flex-wrap: wrap;
     margin: 5rem 5.5rem;
     padding: 0;
-    gap: 5rem 2rem;
+    gap: 5rem 3rem;
     justify-items: center;
     align-items: center;
 }
@@ -80,10 +80,12 @@ section{
     flex-direction: column;
     border-radius: 2rem;
     padding: 0;
-    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+    border: none;
+    box-shadow: 0 0 0.4rem 0 rgba(0, 0, 0, 0.2);
     overflow: hidden;
     width: 90%;
     margin: 2rem 0;
+    height: 100%;
 }
 .card .imag{
     height: 100%;
@@ -91,15 +93,17 @@ section{
     overflow: hidden;
     padding: 2rem;
     display: flex;
+    flex: 60%;
 }
-.card img{
+.card .imag img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 .card .layer{
+    flex: 40%;
     margin: 0;
-    padding: 2rem;
+    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,7 +122,7 @@ section{
 .card .price{
     width: 100%;
     text-align: center;
-    margin: 0.7rem 0;
+    margin: 1.5rem 0;
     font-size: 2rem;
     color: black;
 }
@@ -142,9 +146,100 @@ section{
     background-color: var(--bg-color);
 }
 
-
-
-
+/* properties for popup */
+.cover{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 101;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+.popup{
+    background-color: white;
+    position: fixed;
+    width: 120rem;
+    height: 70rem;
+    padding: 3rem 4rem 5rem; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.popup .icon{
+    width: 100%;
+    margin: 0;
+    padding: .3rem 0;
+    display: flex;
+    justify-content: right;    
+}
+.popup .icon i{
+    margin-left: auto;
+    color: var(--main-color);
+    font-size: 3rem;
+    border-radius: 50%;
+}
+.popup .icon i:hover{
+    cursor: pointer;
+    color: white;
+    background-color: var(--main-color);
+}
+.popup .box{
+    background-color: lightgray;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    gap: 2rem;
+    border-radius: 5px;
+}
+.popup .box .imge{
+    width: 100%;
+    height: 100%;
+    flex: 2;
+    overflow: hidden;
+    display: flex;
+    background-color: white;
+    padding: 2rem;
+}
+.popup .box .imge img{
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+}
+.popup .box .detail{
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 1rem 2rem;
+    overflow: hidden;
+}
+.popup .box .detail h1{
+    margin-top: 1.5rem;
+    font-size: 1.8rem;
+}
+.popup .box .detail p{
+    font-size: 2.2rem;
+    color: var(--main-color);
+    font-weight: bold;
+}
+.show-popup{
+    visibility: visible;
+}
 
 
 
@@ -160,16 +255,14 @@ section{
         margin: 4rem 2rem;
         gap: 2rem 1rem;
     }
- 
     .head{
         font-size: 2rem;
         margin: 4rem 0 3rem;
     }
-
-
     .bar{
         height: 50%;
         width: 70%;
+        margin: 6rem auto;
     }
     .bar input{
         width: 65%;
@@ -188,6 +281,44 @@ section{
         padding-top: .1rem;
     }
 
+    /* popup */
+    .popup{
+        width: 35rem;
+        height: 70rem;
+        padding: .8rem .8rem 1.8rem; 
+        flex-direction: column;
+    }
+    .popup .box{
+        background-color: lightgray;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 1.3rem;
+        gap: 1.3rem;
+    }
+    .popup .box .imge{
+        padding: 1rem 2rem;
+        flex: 55%;
+    }
+    .popup .box .imge img{
+        width: 100%;
+        
+    }
+    .popup .box .detail{
+        flex: 45%;
+        height: 100%;
+    }
+    .popup .box .detail h1{
+        margin-top: .7rem;
+        font-size: 1.2rem;
+    }
+    .popup .box .detail p{
+        font-size: 1.1rem;
+        color: var(--main-color);
+        font-weight: bold;
+    }
+
 
     .card{
         height: 30rem;
@@ -195,11 +326,11 @@ section{
         padding-top: .5rem;
     }
     .card .imag{
-        padding: 0.5rem 0.5rem;
+        padding: 1.5rem;
         display: grid;
     }
     .card .layer{
-        padding:  0;
+        padding:  .8rem;
         height: 50%;
     }
     .card .name{
