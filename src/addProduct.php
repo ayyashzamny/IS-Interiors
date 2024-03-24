@@ -28,7 +28,7 @@ if (isset($_POST["submit"])) {
       move_uploaded_file($tmpName, 'uplords/' . $newImageName);
 
       $query = "INSERT INTO products (id , name, price, category, description, image) 
-	  VALUES ('', '$productName', '$productPrice', '$productCategory','$productDescription', '$newImageName')";
+	    VALUES ('', '$productName', '$productPrice', '$productCategory','$productDescription', '$newImageName')";
       mysqli_query($conn, $query);
 
       echo "
