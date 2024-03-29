@@ -25,7 +25,7 @@ if (isset($_POST["submit"])) {
     } else {
       $newImageName = uniqid() . '.' . $imageExtension;
 
-      move_uploaded_file($tmpName, 'uplords/' . $newImageName);
+      move_uploaded_file($tmpName, 'uploads/' . $newImageName);
 
       $query = "INSERT INTO products (id , name, price, category, description, image) 
 	    VALUES ('', '$productName', '$productPrice', '$productCategory','$productDescription', '$newImageName')";
@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
       echo "
         <script>
           alert('Successfully Added');
-          document.location.href = '../addProduct.php';
+          document.location.href = 'addProduct.php';
         </script>";
     }
   }
@@ -70,15 +70,15 @@ if (isset($_POST["submit"])) {
   <!-- buttons for pages -->
   <div class="top-container">
     <div class="top-buttons d-flex justify-content-between my-5">
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="addProduct.html">Add Product</a></button>
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="editProducts.html">Edit Products</a></button>
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="inquiry.html">Inqueries</a></button>
+    <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="addProduct.php">Add Product</a></button>
+      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="editProducts.php">Edit Products</a></button>
+      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="inquiry.php">Inqueries</a></button>
     </div>
   </div>
 
   <div class="form-container">
     
-    <form action="" method="POST" autocomplete="off">
+    <form action="" method="POST" autocomplete="off" enctype="multipart/form-data">
       <div class="form-group row mb-4">
         <label for="productName" class="col-sm-3 col-form-label">Name:</label>
         <div class="col-sm-9">
@@ -106,7 +106,7 @@ if (isset($_POST["submit"])) {
       <div class="form-group row mb-4">
         <label for="productImage" class="col-sm-3 col-form-label"> Select Image:</label>
         <div class="col-sm-9">
-          <input type="file" class="form-control-file" id="productImage" accept="image/*" name="productImage"> 
+          <input type="file" class="form-control-file" id="productImage" accept=".jpg, .jpeg, .png" name="productImage" value=""> 
         </div>
       </div>
       <div class="form-group row justify-content-between">
@@ -118,7 +118,7 @@ if (isset($_POST["submit"])) {
             <button type="reset" class="btn btn-danger btn-block">CLEAR</button>
         </div>
       </div>
-    </form>
+    </form> 
   </div>
 
   <!-- Bootstrap JS and Popper.js -->

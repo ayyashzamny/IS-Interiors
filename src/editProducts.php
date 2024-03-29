@@ -1,3 +1,23 @@
+<?php
+    // Include your database connection file
+    include("Backend/db_connection.php");
+
+    // Fetch certificates data from the database
+    $query = "SELECT * FROM products ORDER BY id DESC";
+    $result = mysqli_query($conn, $query);
+
+    // Check if there are any certificates
+    if ($result) {
+        $productData = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    } else {
+        $productData = array(); // Empty array if no data or error
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,9 +47,9 @@
   <!-- buttons for pages -->
   <div class="top-container">
     <div class="top-buttons d-flex justify-content-between my-5">
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="addProduct.html">Add Product</a></button>
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="editProducts.html">Edit Products</a></button>
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="inquiry.html">Inqueries</a></button>
+      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="addProduct.php">Add Product</a></button>
+      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="editProducts.php">Edit Products</a></button>
+      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="inquiry.php">Inqueries</a></button>
     </div>
   </div>
 
@@ -47,24 +67,18 @@
             <th>Delete</th>
           </tr>
         </thead>
+        <?php foreach ($productData as $product): ?>
         <tbody>
           <!-- Sample Data (Replace with dynamic data) -->
           <tr>
-            <td><img src="../img/award.jpg" alt=""></td>
-            <td>Product 1</td>
-            <td>$19.99</td>
-            <td>2024-03-02</td>
+            <td><img src="uploads/<?php echo $product['image']; ?>" alt=""></td>
+            <td><?php echo $product['name']; ?></td>
+            <td><?php echo $product['price']; ?></td>
+            <td><?php echo $product['category']; ?></td>
             <td><button class="btn btn-update btn-sm">update</button></td>
-            <td><button class="btn btn-delete btn-sm">delete</button></td>
+            <td><a class="btn btn-delete btn-sm" href="BackEnd/DeleteProduct.php?id=<?php echo $product['id']; ?>" onclick="return confirm('Are you sure you want to delete the Product ?')">Delete</a></td>
           </tr>
-          <tr>
-            <td><img src="../img/award.jpg" alt=""></td>
-            <td>Product 2</td>
-            <td>$29.99</td>
-            <td>2024-03-01</td>
-            <td><button class="btn btn-update btn-sm">update</button></td>
-            <td><button class="btn btn-delete btn-sm">delete</button></td>
-          </tr>
+          <?php endforeach; ?>
           <!-- Add more rows as needed -->
         </tbody>
       </table>

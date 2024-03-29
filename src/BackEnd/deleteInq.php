@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
         exit();
     } else {
         // Handle error if deletion fails
-        echo "Error deleting certificate: " . mysqli_error($conn);
+        echo "Error deleting : " . mysqli_error($conn);
     }
 
     // Close the database connection

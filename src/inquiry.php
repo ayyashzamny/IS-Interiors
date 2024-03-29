@@ -49,9 +49,9 @@
     <!-- buttons for pages -->
     <div class="top-container">
         <div class="top-buttons d-flex justify-content-between my-5">
-            <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="addProduct.html">Add Product</a></button>
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="editProducts.html">Edit Products</a></button>
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="inquiry.html">Inqueries</a></button>
+            <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="addProduct.php">Add Product</a></button>
+            <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="editProducts.php">Edit Products</a></button>
+            <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="inquiry.php">Inqueries</a></button>
         </div>
     </div>
 
