@@ -1,4 +1,16 @@
 <?php
+
+    session_start();
+
+    // Check if the user is not logged in, redirect to login page
+    if (!isset($_SESSION['Uname'])) {
+        header("Location: login.html");
+        exit();
+    }
+
+?>
+
+<?php
 require 'Backend/db_connection.php';
 
 if (isset($_POST["submit"])) {
@@ -63,7 +75,7 @@ if (isset($_POST["submit"])) {
     <a class="navbar-brand ml-3" href="#">IS Interiors</a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <button class="btn btn-logout">LOGOUT</button>
+        <a href="BackEnd/logout.php"><button class="btn btn-logout" >LOGOUT</button></a>
       </li>
     </ul>
   </nav>

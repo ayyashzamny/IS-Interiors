@@ -1,4 +1,16 @@
 <?php
+
+    session_start();
+
+    // Check if the user is not logged in, redirect to login page
+    if (!isset($_SESSION['Uname'])) {
+        header("Location: login.html");
+        exit();
+    }
+
+?>
+
+<?php
     // Include your database connection file
     include("Backend/db_connection.php");
 
@@ -40,7 +52,7 @@
     <a class="navbar-brand ml-3" href="#">IS Interiors</a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <button class="btn btn-logout">LOGOUT</button>
+        <a href="BackEnd/logout.php"><button class="btn btn-logout" >LOGOUT</button></a>
       </li>
     </ul>
   </nav>
@@ -75,7 +87,7 @@
             <td><?php echo $product['name']; ?></td>
             <td><?php echo $product['price']; ?></td>
             <td><?php echo $product['category']; ?></td>
-            <td><button class="btn btn-update btn-sm">update</button></td>
+            <td><a href="BackEnd/updateProduct.php?id=<?php echo $product['id']; ?>" class="btn btn-update btn-sm">update</a></td>
             <td><a class="btn btn-delete btn-sm" href="BackEnd/DeleteProduct.php?id=<?php echo $product['id']; ?>" onclick="return confirm('Are you sure you want to delete the Product ?')">Delete</a></td>
           </tr>
           <?php endforeach; ?>

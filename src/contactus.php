@@ -55,8 +55,8 @@
 
         <nav class="navbar">
             <a href="./index.html" >Home</a>
-            <a href="./shop.html">Store</a>
-            <a href="./contactus.html" class="active">Contact Us</a>
+            <a href="./shop.php">Store</a>
+            <a href="./contactus.php" class="active">Contact Us</a>
         </nav>
     </header>
 
