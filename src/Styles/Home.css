@@ -1,255 +1,362 @@
-/*Head section*/
-
-  
 @keyframes typing {
-    from { width: 0px; }
+  from {
+    width: 0px;
   }
-  
-  @keyframes blink-caret {
-    52% { border-color: transparent; }
-  }
-  
-  @keyframes deleting {
-    to { width: 0px; }
-  }
-  
-  #typing-effect {
-    display: inline-block;
-    border-right: 0.04em solid #ffffff;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 2s steps(40, end), blink-caret 0.5s step-end infinite alternate;
-    font-size: 60px;
-    margin-top: -2px;
-    margin-left: 45px;
-    color: #ffffff;
-  }
-  
-  .deleting-effect {
-    animation: deleting 1s steps(40, end), blink-caret 0.75s step-end infinite alternate;
-  }
-  
-  #typing-placeholder {
-    visibility: hidden;
-  }
+}
 
-  #typing-container {
-    min-height: 60px; /* Set a minimum height for typing container */
-    margin-bottom: 20px; /* Add margin to separate elements */
+@keyframes blink-caret {
+  52% {
+    border-color: transparent;
   }
-  
+}
 
-  .container {
-    position: relative;
-    text-align: center;
-    color: white;
+@keyframes deleting {
+  to {
+    width: 0px;
   }
-  
+}
 
-  #welcome{
-    font-size: 80px;
-    margin-top: 60px;
-    margin-left: 45px;
-    color: #ffffff;
-  }
-  
-  #contact{
-      border-radius: 50px;
-      text-align: center;
-      font-size: 1.5vw;
-      background-color: #ffffff ;
-      color: #000080;
-      border-bottom: 0 solid;
-      padding: 15px 25px;
-      margin-right: 150px;
-      float: right;
-      margin-top: 200px;
-      font-weight: 700;
-  }
+#typing-effect {
+  display: inline-block;
+  border-right: 0.04em solid #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(40, end), blink-caret 0.5s step-end infinite alternate;
+  font-size: 6.5rem;
+  margin-top: -2px;
+  margin-left: 45px;
+  color: #ffffff;
+}
+
+.deleting-effect {
+  animation: deleting 1s steps(40, end), blink-caret 0.75s step-end infinite alternate;
+}
+
+#typing-placeholder {
+  visibility: hidden;
+}
+
+#typing-container {
+  min-height: 60px;
+  margin-bottom: 20px;
+}
+
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+
+#welcome {
+  font-size: 6.5rem;
+  margin-top: 60px;
+  margin-left: 45px;
+  color: #ffffff;
+}
+
+#contact {
+  border-radius: 50px;
+  text-align: center;
+  font-size: 2.8rem;
+  background-color: #ffffff;
+  color: #000080;
+  border-bottom: 0 solid;
+  padding: 15px 25px;
+  margin-right: 10rem;
+  float: right;
+  margin-top: 200px;
+  font-weight: 700;
+}
+
+.all {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  padding: 2.3rem;
+}
+
+#contact:hover {
+  background-color: #ffffff;
+  opacity: 70%;
+}
+
+.elemnts {
+  margin-left: 10rem;
+  min-height: 360px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.Slink {
+  text-decoration: none;
+}
+
+.container {
+  width: 10vw;
+  height: 10vw;
+  background-color: #ffffff;
+  color: #000080;
+  border-radius: 10px;
+  margin: 10vw;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Dancing Script', cursive;
+  position: relative;
+
+}
+
+.container i {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.container .num {
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.container .text {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+
+/* why us */
+
+.whyus {
+  text-align: center;
+  color: #000080;
+  font-weight: bold;
+  font-size: 3.6rem;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+  height: auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  padding: 4rem;
+  padding-top: 0;
+}
+
+.whycontainer {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #000080;
+  border-radius: 1rem;
+}
+
+.whycontainer:hover .overlay {
+  opacity: 75%;
+}
+
+.whytext {
+  color: white;
+  font-size: 2.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+
+/* about section */
+
+.aboutSection h2 {
+  text-align: center;
+  color: #000080;
+  font-weight: bold;
+  font-size: 3.6em;
+  margin-top: 6rem;
+  margin-bottom: 0;
+}
+
+.aboutrow {
+  display: flex;
+  align-items: center;
+  margin: 5rem 7rem;
+  padding: auto 2rem;
+  gap: 3rem;
+}
+
+.aboutclm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.aboutSection p {
+  font-size: 2.2rem;
+  color: rgb(44, 44, 44);
+  word-spacing: 3px;
+  height: 100%;
+}
+
+.aboutimg {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 0 1px .1px gray;
+}
+
+
+/* media queries */
+@media (max-width:768px) {
 
   .all{
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
-    background-size: 100% 100%;
-    padding: 0.7px;
+    padding: 1rem 2rem;
   }
-  
-  #contact:hover{
-    background-color: #ffffff;
-    opacity: 70%;
+  #contact{
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    margin-right: 2rem;
+    margin-top: 10rem;
   }
-  
-
   .elemnts{
-    margin-left: 100px;
-    min-height: 360px; /* Set a minimum height */
+    margin-left: 2rem;
+    min-height: 150px;
+  }
+  #welcome{
+    font-size: 1.5rem;
+    margin-left: 0;
+    margin-top: 3rem;
+    margin-bottom: 0;
+  }
+  .wrapper{
+    margin-bottom: 2rem;
+    gap: 4rem;
+  }
+  .container{
+    width: 15vw;
+    height: 15vw;
+    padding: .5rem;
+    margin: 0;
+  }
+  .container .num{
+    font-size: 1.5rem;
+  }
+  .container .text{
+    font-size: .5rem;
   }
 
-
-
-  
-  /* Counting effect */
-
-
-  .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    font-weight: bold;
-    margin-bottom: 50px;
+  #typing-container{
+    margin-bottom: 1rem;
   }
-
-  .Slink {
-    text-decoration: none;
-  }
-  
-  .container {
-    width: 10vw;
-    height: 10vw;
-    background-color: #ffffff;
-    color: #000080;
-    border-radius: 10px;
-    margin: 10vw;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Dancing Script', cursive;
-    position: relative;
-
+  #typing-effect{
+    font-size: 1.5rem;
+    margin: 0;
   }
   
-  .container i {
-    font-size: 3em;
-    margin-bottom: 10px;
-  }
-  
-  .container .num {
-    font-size: 4vw;
-    font-weight: bold;
-  }
-  
-  .container .text {
-    font-size: 1vw;
-    text-transform: uppercase;
-  }
 
-
+  
   /* why us */
-
-  .whyus{
-    text-align: center;
-    color: #000080;
-    font-weight: bold;
-    font-size: 2.7vw;
-    margin-top: 80px;
-
+  .whyus {
+    font-size: 1.2rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
   }
-  
 
   .row {
-    display: flex;
-    justify-content: center;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 50px;
-    margin-bottom: 60px;
-    height: auto; /* Remove height:auto */
+    flex-direction: column;
+    margin: 1rem;
   }
-  
+
   .column {
-    display: flex; /* Add display:flex */
-    flex-direction: column; /* Set flex-direction to column */
-    align-items: center; /* Center align items vertically */
-    width: 25%;
-    padding: 40px;
+    width: 100%;
+    padding: 1rem;
   }
-  
+
   .whycontainer {
-    position: relative;
-    width: 100%;
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  
+
   .image {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
+    width: 50%;    
   }
-  
+
   .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: #000080;
-    border-radius: 20px;
+    position: static;
+    opacity: 1;
+    background-color: transparent;
+    padding-left: 1rem;
+    margin-top: auto;
   }
-  
-  .whycontainer:hover .overlay {
-    opacity: 75%;
-  }
-  
+
   .whytext {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: left;
+    color: black;
+    font-size: 1.2rem;
+    position: static;
+    transform: none;
+    height: 100%;
+    height: 100%; 
   }
 
-  /* about section */
-
+  /* about us */
   .aboutSection h2 {
-    text-align: center;
-    color: #000080;
-    font-weight: bold;
-    font-size: 5vb;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    font-size: 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .aboutrow {
+    flex-direction: column;
+    margin: 2.5rem 2rem;
+    gap: 1.5rem;
   }
 
   .aboutSection p {
-    font-size: 2.3vb;
-    color: rgb(44, 44, 44);
-    margin-left: 100px;
-    margin-right: 10px;
-    margin-bottom: 60px;
-    text-align: left;
+    font-size: .8rem;
+    margin-bottom: 0;
   }
-
-
-  .aboutrow{
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 60px;
-    height: auto; /* Remove height:auto */
-  }
-
-  .aboutclm{
-    display: flex; /* Add display:flex */
-    flex-direction: column; /* Set flex-direction to column */
-    align-items: center; /* Center align items vertically */
-    width: 50%;
-    padding: 4px;
-  }
-
-  .aboutimg{
-    width: 35vw;
-    border-radius: 10%;
-  }
-
+}

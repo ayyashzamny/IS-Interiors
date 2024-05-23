@@ -1,25 +1,18 @@
-/* .top-container{
-  background-color: none;
-  width: 60%;
-  margin-left: 20%;
-}
-.top-container .top-buttons button:hover{
-  box-shadow: 1px 2px 3px 0 black;      
-} */
-
 .container {
   background-color: #ffffff;
-  border-radius: 1rem;
   padding: 1.5rem;
-  margin-top: 1.5rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
 }
 
 .table th,
 .table td {
-  background-color: #e2e8f0;
   text-align: center;
   white-space: nowrap;
-  align-items: center;
+  font-size: 1rem;
+}
+
+.table th {
+  text-transform: uppercase;
 }
 
 .table img {
@@ -37,31 +30,28 @@
 .btn-delete {
   background-color: #dc3545;
   color: #ffffff;
-  font-size: 0.875rem;
+  font-size: 0.6rem;
 }
 
 
 /* media queries */
 @media (max-width: 767.98px) {
-
-  /* .top-container{
-        width: 85%;
-        margin: auto;
-      }
-      .top-container .top-buttons button{
-        font-size: .6rem;
-      } */
   .container {
-    width: 90%;
-    padding: .7rem;
-    padding-top: 2rem;
+    width: 95%;
+    padding: 1rem .5rem;
   }
 
-  .table-responsive {
+  .table th,.table td{
     font-size: .6rem;
   }
+  .table .btn{
+    font-size: .6rem;
+  }
+  .table img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  
 
-  .table-responsive td .btn {
-    font-size: .6rem;
-  }
 }
