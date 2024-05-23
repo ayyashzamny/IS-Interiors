@@ -51,6 +51,9 @@
     <link rel="mask-icon" href="img/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+
+    <!-- sweet alert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css">
     
 </head>
 
@@ -96,7 +99,7 @@
             <td><?php echo $product['price']; ?></td>
             <td><?php echo $product['category']; ?></td>
             <td><a href="BackEnd/updateProduct.php?id=<?php echo $product['id']; ?>" class="btn btn-update btn-sm">update</a></td>
-            <td><a class="btn btn-delete btn-sm" href="BackEnd/DeleteProduct.php?id=<?php echo $product['id']; ?>" onclick="return confirm('Are you sure you want to delete the Product ?')">Delete</a></td>
+            <td><button class="btn btn-delete btn-sm" onclick="confirmDelete(<?php echo $product['id']; ?>)">Delete</button></td>
           </tr>
           <?php endforeach; ?>
           <!-- Add more rows as needed -->
@@ -104,6 +107,29 @@
       </table>
     </div>
   </div>
+
+  <!-- sweet alert -->
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.all.min.js"></script>
+    <script>
+        // Function to show SweetAlert2 confirmation dialog
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to delete this product!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to delete product PHP file with the product ID
+                    window.location.href = `BackEnd/DeleteProduct.php?id=${id}`;
+                }
+            });
+        }
+    </script>
 
   <!-- Bootstrap JS and Popper.js -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

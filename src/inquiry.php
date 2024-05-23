@@ -56,6 +56,8 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css">
+
 </head>
 
 <body>
@@ -112,7 +114,7 @@
                         <div class="form-group row">
                             <div class="col-sm-9 offset-sm-3">
                                 <!-- <button type="button" class="btn btn-danger float-right">Delete</button> -->
-                                <a class="btn btn-danger float-right" href="BackEnd/deleteInq.php?id=<?php echo $certificate['cot_id']; ?>" onclick="return confirm('Are you sure you want to delete this ?')">Delete</a>
+                                <a class="btn btn-danger float-right" href="javascript:void(0);" onclick="confirmDelete(<?php echo $certificate['cot_id']; ?>)">Delete</a>
                             </div>
                         </div>
                     </form>
@@ -123,7 +125,26 @@
 
         
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.all.min.js"></script>
+    <script>
+        // Function to show SweetAlert2 confirmation dialog
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to delete this record!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to delete inquiry PHP file with the inquiry ID
+                    window.location.href = `BackEnd/deleteInq.php?id=${id}`;
+                }
+            });
+        }
+    </script>
 
 
 

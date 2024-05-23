@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     // Check if the user is not logged in, redirect to login page
@@ -11,47 +10,59 @@
 ?>
 
 <?php
-require 'Backend/db_connection.php';
+    require 'Backend/db_connection.php';
 
-if (isset($_POST["submit"])) {
-  $productName = $_POST["productName"];
-  $productPrice = $_POST["productPrice"];
-  $productCategory = $_POST["productCategory"];
-  $productDescription = $_POST["productDescription"];
+    if (isset($_POST["submit"])) {
+        $productName = $_POST["productName"];
+        $productPrice = $_POST["productPrice"];
+        $productCategory = $_POST["productCategory"];
+        $productDescription = $_POST["productDescription"];
 
-  if ($_FILES["productImage"]["error"] == 4) {
-    echo "<script> alert('Image Does Not Exist'); </script>";
-  } else {
-    $fileName = $_FILES["productImage"]["name"];
-    $fileSize = $_FILES["productImage"]["size"];
-    $tmpName = $_FILES["productImage"]["tmp_name"];
+        if ($_FILES["productImage"]["error"] == 4) {
+            echo "<script> alert('Image Does Not Exist'); </script>";
+        } else {
+            $fileName = $_FILES["productImage"]["name"];
+            $fileSize = $_FILES["productImage"]["size"];
+            $tmpName = $_FILES["productImage"]["tmp_name"];
 
-    $validImageExtension = ['jpg', 'jpeg', 'png'];
-    $imageExtension = explode('.', $fileName);
-    $imageExtension = strtolower(end($imageExtension));
+            $validImageExtension = ['jpg', 'jpeg', 'png'];
+            $imageExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-    if (!in_array($imageExtension, $validImageExtension)) {
-      echo "<script> alert('Invalid Image Extension'); </script>";
-    } else if ($fileSize > 1000000) {
-      echo "<script> alert('Image Size Is Too Large'); </script>";
-    } else {
-      $newImageName = uniqid() . '.' . $imageExtension;
+            if (!in_array($imageExtension, $validImageExtension)) {
+                echo "<script> alert('Invalid Image Extension'); </script>";
+            } else if ($fileSize > 1000000) {
+                echo "<script> alert('Image Size Is Too Large'); </script>";
+            } else {
+                $newImageName = uniqid() . '.' . $imageExtension;
 
-      move_uploaded_file($tmpName, 'uploads/' . $newImageName);
+                move_uploaded_file($tmpName, 'uploads/' . $newImageName);
 
-      $query = "INSERT INTO products (id , name, price, category, description, image) 
-	    VALUES ('', '$productName', '$productPrice', '$productCategory','$productDescription', '$newImageName')";
-      mysqli_query($conn, $query);
+                $query = "INSERT INTO products (name, price, category, description, image) 
+                          VALUES ('$productName', '$productPrice', '$productCategory', '$productDescription', '$newImageName')";
 
-      echo "
-        <script>
-          alert('Successfully Added');
-          document.location.href = 'addProduct.php';
-        </script>";
+                if (mysqli_query($conn, $query)) {
+                    echo "
+                        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.js'></script>
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: 'Product added successfully',
+                                showConfirmButton: false,
+                                timer: 2000
+                            }).then(() => {
+                                // Redirect to addProduct.php after success
+                                window.location.href = 'addProduct.php';
+                            });
+                        </script>";
+                } else {
+                    echo "<script> alert('Failed to add product: " . mysqli_error($conn) . "'); </script>";
+                }
+            }
+        }
     }
-  }
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,14 +78,13 @@ if (isset($_POST["submit"])) {
   <link rel="stylesheet" href="Styles/header.css">
   <link rel="stylesheet" href="Styles/addProducts.css">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_package_v0.16/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_package_v0.16/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_package_v0.16/favicon-16x16.png">
     <link rel="manifest" href="img/favicon_package_v0.16/site.webmanifest">
     <link rel="mask-icon" href="img/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    
 </head>
 
 <body>
@@ -97,7 +107,6 @@ if (isset($_POST["submit"])) {
   </div>
 
   <div class="form-container">
-    
     <form action="" method="POST" autocomplete="off" enctype="multipart/form-data">
       <div class="form-group row mb-4">
         <label for="productName" class="col-sm-3 col-form-label">Name:</label>
@@ -131,11 +140,10 @@ if (isset($_POST["submit"])) {
       </div>
       <div class="form-group row justify-content-between">
         <div class="col-6 col-sm-2">
-          
           <button type="submit" name="submit" id="btnf" class="btn btn-primary btn-block">Submit</button>
-      </div>
-      <div class=" col-6 col-sm-2">
-            <button type="reset" class="btn btn-danger btn-block">CLEAR</button>
+        </div>
+        <div class="col-6 col-sm-2">
+          <button type="reset" class="btn btn-danger btn-block">CLEAR</button>
         </div>
       </div>
     </form> 
@@ -144,6 +152,7 @@ if (isset($_POST["submit"])) {
   <!-- Bootstrap JS and Popper.js -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.js"></script>
   <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 </body>
 
