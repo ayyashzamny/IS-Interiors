@@ -1,11 +1,16 @@
 <?php
+<<<<<<< HEAD
     session_start();
+=======
 
-    // Check if the user is not logged in, redirect to login page
-    if (!isset($_SESSION['Uname'])) {
-        header("Location: login.html");
-        exit();
-    }
+session_start();
+>>>>>>> b4d416eadd53b612ae750604c889db0796c2fb3e
+
+// Check if the user is not logged in, redirect to login page
+if (!isset($_SESSION['Uname'])) {
+  header("Location: login.html");
+  exit();
+}
 
 ?>
 
@@ -70,14 +75,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>add new product</title>
+  <title>New Product</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
   <!-- style sheets -->
-  <link rel="stylesheet" href="Styles/header.css">
-  <link rel="stylesheet" href="Styles/addProducts.css">
+  <link rel="stylesheet" href="./Styles/header.css">
+  <link rel="stylesheet" href="./Styles/addProducts.css">
 
+<<<<<<< HEAD
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_package_v0.16/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_package_v0.16/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_package_v0.16/favicon-16x16.png">
@@ -85,6 +91,16 @@
     <link rel="mask-icon" href="img/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+=======
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon_package_v0.16/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+>>>>>>> b4d416eadd53b612ae750604c889db0796c2fb3e
 </head>
 
 <body>
@@ -93,20 +109,31 @@
     <a class="navbar-brand ml-3" href="#">IS Interiors</a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a href="BackEnd/logout.php"><button class="btn btn-logout" >LOGOUT</button></a>
+        <a href="BackEnd/logout.php"><button class="btn btn-logout">LOGOUT</button></a>
       </li>
     </ul>
   </nav>
-  <!-- buttons for pages -->
+
+  <!-- pages -->
   <div class="top-container">
-    <div class="top-buttons d-flex justify-content-between my-5">
-    <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="addProduct.php">Add Product</a></button>
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="editProducts.php">Edit Products</a></button>
-      <button class="btn btn-lighter border font-weight-bold btn-lg w-25"><a href="inquiry.php">Inqueries</a></button>
-    </div>
+    <ul class="nav nav-tabs">
+      <li class="nav-item font-weight-bold">
+        <a class="nav-link active" aria-current="page" href="#">New Product</a>
+      </li>
+      <li class="nav-item font-weight-bold">
+        <a class="nav-link" href="./editProducts.php">Customise Products</a>
+      </li>
+      <li class="nav-item font-weight-bold">
+        <a class="nav-link" href="./inquiry.php">Messages</a>
+      </li>
+    </ul>
   </div>
 
   <div class="form-container">
+<<<<<<< HEAD
+=======
+
+>>>>>>> b4d416eadd53b612ae750604c889db0796c2fb3e
     <form action="" method="POST" autocomplete="off" enctype="multipart/form-data">
       <div class="form-group row mb-4">
         <label for="productName" class="col-sm-3 col-form-label">Name:</label>
@@ -123,7 +150,12 @@
       <div class="form-group row mb-4">
         <label for="productCategory" class="col-sm-3 col-form-label">Category:</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="productCategory" name="productCategory">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Select Category</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
         </div>
       </div>
       <div class="form-group row mb-4">
@@ -135,18 +167,25 @@
       <div class="form-group row mb-4">
         <label for="productImage" class="col-sm-3 col-form-label"> Select Image:</label>
         <div class="col-sm-9">
-          <input type="file" class="form-control-file" id="productImage" accept=".jpg, .jpeg, .png" name="productImage" value=""> 
+          <input type="file" class="form-control-file" id="productImage" accept=".jpg, .jpeg, .png" name="productImage" value="">
         </div>
       </div>
       <div class="form-group row justify-content-between">
+        <div class=" col-6 col-sm-2">
+          <button type="reset" class="btn btn-danger btn-block btn-sm">CLEAR</button>
+        </div>
         <div class="col-6 col-sm-2">
+<<<<<<< HEAD
           <button type="submit" name="submit" id="btnf" class="btn btn-primary btn-block">Submit</button>
         </div>
         <div class="col-6 col-sm-2">
           <button type="reset" class="btn btn-danger btn-block">CLEAR</button>
+=======
+          <button type="submit" name="submit" id="btnf" class="btn btn-primary btn-block btn-sm">SUBMIT</button>
+>>>>>>> b4d416eadd53b612ae750604c889db0796c2fb3e
         </div>
       </div>
-    </form> 
+    </form>
   </div>
 
   <!-- Bootstrap JS and Popper.js -->

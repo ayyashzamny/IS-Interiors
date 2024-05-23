@@ -1,12 +1,12 @@
 <?php
 
-    session_start();
+session_start();
 
-    // Check if the user is not logged in, redirect to login page
-    if (!isset($_SESSION['Uname'])) {
-        header("Location: login.html");
-        exit();
-    }
+// Check if the user is not logged in, redirect to login page
+if (!isset($_SESSION['Uname'])) {
+    header("Location: login.html");
+    exit();
+}
 
 ?>
 
@@ -15,24 +15,24 @@
 include("db_connection.php");
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+  $id = $_GET['id'];
 
-    // Fetch certificate data by ID
-    $query = "SELECT * FROM products WHERE id = $id";
-    $result = mysqli_query($conn, $query);
+  // Fetch certificate data by ID
+  $query = "SELECT * FROM products WHERE id = $id";
+  $result = mysqli_query($conn, $query);
 
-    if ($result) {
-        $ProData = mysqli_fetch_assoc($result);
-    } else {
-        $ProData = array(); // Empty array if no data or error
-    }
+  if ($result) {
+    $ProData = mysqli_fetch_assoc($result);
+  } else {
+    $ProData = array(); // Empty array if no data or error
+  }
 
-    // Close the database connection
-    mysqli_close($conn);
+  // Close the database connection
+  mysqli_close($conn);
 } else {
-    // Redirect to EditDetails.php if no ID is provided
-    header("Location: ../editProducts.php");
-    exit();
+  // Redirect to EditDetails.php if no ID is provided
+  header("Location: ../editProducts.php");
+  exit();
 }
 ?>
 
@@ -62,36 +62,41 @@ if (isset($_GET['id'])) {
       </li>
     </ul>
   </nav>
-  
+
 
   <div class="form-container">
-    
-    <form action="saveUpdateProducts.php" method="POST" autocomplete="off" >
+
+    <form action="saveUpdateProducts.php" method="POST" autocomplete="off">
 
       <input type="hidden" name="id" value="<?php echo $ProData['id']; ?>">
-    
+
       <div class="form-group row mb-4">
         <label for="productName" class="col-sm-3 col-form-label">Name:</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="productName" name="productName" value = "<?php echo $ProData['name']; ?>">
+          <input type="text" class="form-control" id="productName" name="productName" value="<?php echo $ProData['name']; ?>">
         </div>
       </div>
       <div class="form-group row mb-4">
         <label for="productPrice" class="col-sm-3 col-form-label">Price:</label>
         <div class="col-sm-9">
-          <input type="number" class="form-control" id="productPrice" name="productPrice" value = "<?php echo $ProData['price']; ?>">
+          <input type="number" class="form-control" id="productPrice" name="productPrice" value="<?php echo $ProData['price']; ?>">
         </div>
       </div>
       <div class="form-group row mb-4">
         <label for="productCategory" class="col-sm-3 col-form-label">Category:</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="productCategory" name="productCategory" value = "<?php echo $ProData['category']; ?>">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Select Category</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
         </div>
       </div>
       <div class="form-group row mb-4">
         <label for="productDescription" class="col-sm-3 col-form-label">Description:</label>
         <div class="col-sm-9">
-          <textarea class="form-control" id="productDescription" rows="3" name="productDescription" ><?php echo $ProData['description']; ?></textarea>
+          <textarea class="form-control" id="productDescription" rows="3" name="productDescription"><?php echo $ProData['description']; ?></textarea>
         </div>
       </div>
       <!-- <div class="form-group row mb-4">
@@ -102,14 +107,14 @@ if (isset($_GET['id'])) {
       </div> -->
       <div class="form-group row justify-content-between">
         <div class="col-6 col-sm-2">
-          
+
           <button type="submit" name="submit" id="btnf" class="btn btn-primary btn-block">Update</button>
-      </div>
-      <div class=" col-6 col-sm-2">
-            <button type="reset" class="btn btn-danger btn-block">CLEAR</button>
+        </div>
+        <div class=" col-6 col-sm-2">
+          <button type="reset" class="btn btn-danger btn-block">CLEAR</button>
         </div>
       </div>
-    </form> 
+    </form>
   </div>
 
   <!-- Bootstrap JS and Popper.js -->

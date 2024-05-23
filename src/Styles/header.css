@@ -29,20 +29,18 @@
       box-shadow: none;
       font-weight: bold;
       border-radius: 1rem;
+      font-size: .8rem;
     }
 
     .navbar-custom .btn-logout:hover {
       box-shadow: 0 0 5px white;
+      color: white;
     }
 
     .top-container {
-      background-color: none;
-      width: 60%;
+      max-width: 60%;
       margin-left: 20%;
-    }
-
-    .top-container .top-buttons button:hover {
-      box-shadow: 1px 2px 3px 0 black;
+      font-size: 1rem;
     }
 
     /* media queries */
@@ -52,15 +50,13 @@
       }
 
       .navbar-custom .nav-item button {
-        font-size: .7rem;
+        font-size: .6rem;
       }
 
       .top-container {
-        width: 85%;
-        margin: auto;
-      }
-
-      .top-container .top-buttons button {
+        max-width: 90%;
+        margin-left: 5%;
         font-size: .6rem;
       }
+
     }

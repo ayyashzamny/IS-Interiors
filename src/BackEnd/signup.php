@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Get user input
     $userName = $_POST["firstName"];
-    
+
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
 
@@ -38,4 +38,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the database connection
     mysqli_close($conn);
 }
-?>

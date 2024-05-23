@@ -1,42 +1,39 @@
-/* Contact Form Styles */
 .contact-form {
-    max-width: 600px; /* Increase the max-width as needed */
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    margin-top: 10px;
-    margin-bottom: 100px;
-    font-weight: 700;
+    margin: 0 auto 10rem;
     color: #000000;
-    font-size: 13px;
+    font-size: 1.4rem;
 }
 
-.contact-title{
+.contact-title {
     text-align: center;
     color: #002370;
     font-weight: bold;
-    margin-bottom: 30px;
-    margin-top: 40px;
-    font-size: 25px;
+    margin-bottom: 3.5rem;
+    margin-top: 7rem;
+    font-size: 2.3rem;
 }
 
 .contact-form label {
     display: block;
-    margin-bottom: 8px;
-    font-size: 15px;
+    margin-bottom: .8rem;
+    font-size: 1.4rem;
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: .4rem;
 }
 
 .contact-form textarea {
@@ -46,11 +43,12 @@
 .contact-form button {
     background-color: #002370;
     color: #fff;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
     border: none;
-    border-radius: 4px;
+    border-radius: .4rem;
     cursor: pointer;
     transition: 0.3s ease;
+    font-size: 1.4rem;
 }
 
 .contact-form button:hover {
@@ -64,14 +62,12 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition:  0.3s ease;
+    transition: 0.3s ease;
 }
 
 .contact-form .clear-btn:hover {
     background-color: #f92145;
 }
-
-/* contactForm.css */
 
 /* Add this CSS for the contact information box */
 .contact-info-box {
@@ -84,4 +80,34 @@
     margin-top: 100px;
     margin-bottom: 0;
     font-weight: bolder;
+}
+
+
+/* media queries */
+@media(max-width: 768px) {
+    .contact-form {
+        font-size: .8rem;
+        margin: 1.5rem;
+        padding: 2rem 1rem;
+    }
+
+    .contact-title {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        margin-top: 4rem;
+    }
+
+    .contact-form label {
+        font-size: .8rem;
+        
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: .5rem;
+    }
+
+    .contact-form button{
+        font-size: .8rem;
+    }
 }
