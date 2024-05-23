@@ -23,7 +23,7 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
+    <title>Awards</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/HeaderFooter.css">
@@ -79,7 +79,9 @@ mysqli_close($conn);
 
         <nav class="navbar">
             <a href="index.html">Home</a>
-            <a href="shop.php" class="active">Store</a>
+            <a href="shop.php" class="active">Awards</a>
+            <a href="./interior.php">Interiors</a>
+            <a href="./exterior.php">Exteriors</a>
             <a href="contactus.php">Contact Us</a>
         </nav>
     </header>
@@ -87,7 +89,9 @@ mysqli_close($conn);
     <section class="section-main">
 
         <!-- heading -->
-        <h2 class="head">Welcome to &nbsp;<span class="spc">IS Interiors</span></h2>
+        <!-- <h2 class="head">Welcome to &nbsp;<span class="spc">IS Interiors</span></h2> -->
+        <h2 class="head">Awards</h2>
+
 
         <!-- search bar -->
         <div class="bar">
@@ -115,7 +119,7 @@ mysqli_close($conn);
                         <h5 class="card-title"><?php echo $product['name']; ?></h5>
                         <p class="card-text">LKR <?php echo $product['price']; ?>.00</p>
                         <div style="display:flex; justify-content: right;">
-                        <a href="#" class="btn btn-primary" onclick="moreDetails(<?php echo $product['id']; ?>)">More Details</a>
+                            <a href="#" class="btn btn-primary" onclick="moreDetails(<?php echo $product['id']; ?>)">More Details</a>
                         </div>
                     </div>
                 </div>
