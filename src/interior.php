@@ -1,15 +1,35 @@
+<?php
+// Include your database connection file
+include("Backend/db_connection.php");
+
+// Fetch all products from the database
+$query = "SELECT * FROM products";
+$result = mysqli_query($conn, $query);
+
+// Check if there are any products
+if ($result && mysqli_num_rows($result) > 0) {
+    $productData = mysqli_fetch_all($result, MYSQLI_ASSOC);
+} else {
+    $productData = array(); // Empty array if no data or error
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Interiors</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/HeaderFooter.css">
-    <link rel="stylesheet" href="Styles/contactus.css">
+    <link rel="stylesheet" href="Styles/shopX.css">
     <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Box icons -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
@@ -23,11 +43,10 @@
 
 </head>
 
-<body>
+<body id="body">
 
     <!--Page up Button-->
-    <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
-
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class='bx bxs-to-top'></i></button>
     <script>
         // Get the button
         let mybutton = document.getElementById("myBtn");
@@ -42,7 +61,6 @@
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";
-
             }
         }
 
@@ -60,33 +78,75 @@
         </div>
 
         <nav class="navbar">
-            <a href="./index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="shop.php">Awards</a>
-            <a href="./interior.php">Interiors</a>
+            <a href="./interior.php"  class="active">Interiors</a>
             <a href="./exterior.php">Exteriors</a>
-            <a href="./contactus.php" class="active">Contact Us</a>
+            <a href="contactus.php">Contact Us</a>
         </nav>
     </header>
 
-    <h2 class="contact-title">Contact &nbsp;<span style="font-family: Dancing script;">IS Interiors</span></h2>
+    <section class="section-main">
 
-    <form class="contact-form" method="POST" action="BackEnd/inq_form.php">
+        <!-- heading -->
+        <h2 class="head">Interiors</h2>
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+        <!-- search bar -->
+        <div class="bar">
+            <input type="search" placeholder="Search...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <!-- pop up window -->
+        <div class="cover" id="popup">
+            <div class="popup">
+                <div class="icon"><i class='bx bx-x-circle' onclick="closePopup()"></i></div>
+                <div class="box" id="popupContent">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+            </div>
+        </div>
 
-        <label for="phone">Phone No:</label>
-        <input type="tel" id="phone" name="phone" required>
+        <!-- products -->
+        <div class="contain">
+            <?php foreach ($productData as $product) : ?>
 
-        <label for="inquiry">Inquiry:</label>
-        <textarea id="inquiry" name="inquiry" rows="4" required></textarea>
+                <div class="card">
+                    <img src="./uploads/<?php echo $product['image']; ?>" class="card-img-top" alt="...">
+                    <div class="card-body ">
+                        <h5 class="card-title"><?php echo $product['name']; ?></h5>
+                        <p class="card-text">LKR <?php echo $product['price']; ?>.00</p>
+                        <div style="display:flex; justify-content: right;">
+                        <a href="#" class="btn btn-primary" onclick="moreDetails(<?php echo $product['id']; ?>)">More Details</a>
+                        </div>
+                    </div>
+                </div>
 
-        <button type="submit" class="submit-btn">Submit</button>
-        <button type="reset" class="clear-btn">Clear</button>
-    </form>
+            <?php endforeach; ?>
+
+        </div>
+
+    </section>
+
+    <script>
+        // for more details
+        function moreDetails(productId) {
+            // AJAX request to fetch product details based on ID
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'fetchProductDetails.php?id=' + productId, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("popupContent").innerHTML = xhr.responseText;
+                    document.getElementById("popup").classList.add("show-popup");
+                }
+            };
+            xhr.send();
+        }
+
+        function closePopup() {
+            document.getElementById("popup").classList.remove("show-popup");
+        }
+    </script>
 
     <footer class="footer">
         <div class="footer-main">
@@ -98,8 +158,8 @@
                     </div>
                     <div>
                         <a href="./index.html">Home</a>
-                        <a href="./shop.php">Store</a>
-                        <a href="#" class="active">Contact Us</a>
+                        <a href="#" class="active">Store</a>
+                        <a href="./contactus.php">Contact Us</a>
                     </div>
                 </div>
 
@@ -132,7 +192,6 @@
 
         </div>
     </footer>
-
 </body>
 
 </html>
