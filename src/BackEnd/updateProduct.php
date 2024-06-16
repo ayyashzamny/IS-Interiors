@@ -85,11 +85,11 @@ if (isset($_GET['id'])) {
       <div class="form-group row mb-4">
         <label for="productCategory" class="col-sm-3 col-form-label">Category:</label>
         <div class="col-sm-9">
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select" aria-label="Default select example" name="productCategory">
             <option selected>Select Category</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="Award">Award</option>
+            <option value="Interior">Interior</option>
+            <option value="Exterior">Exterior</option>
           </select>
         </div>
       </div>
@@ -107,11 +107,10 @@ if (isset($_GET['id'])) {
       </div> -->
       <div class="form-group row justify-content-between">
         <div class="col-6 col-sm-2">
-
-          <button type="submit" name="submit" id="btnf" class="btn btn-primary btn-block">Update</button>
+        <button type="reset" class="btn btn-danger btn-block">CLEAR</button>
         </div>
         <div class=" col-6 col-sm-2">
-          <button type="reset" class="btn btn-danger btn-block">CLEAR</button>
+          <button type="submit" name="submit" id="btnf" class="btn btn-primary btn-block">Update</button>
         </div>
       </div>
     </form>

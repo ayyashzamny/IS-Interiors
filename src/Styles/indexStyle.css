@@ -1,16 +1,22 @@
 /*Head section*/
 
-  
+
 @keyframes typing {
-  from { width: 0px; }
+  from {
+    width: 0px;
+  }
 }
 
 @keyframes blink-caret {
-  52% { border-color: transparent; }
+  52% {
+    border-color: transparent;
+  }
 }
 
 @keyframes deleting {
-  to { width: 0px; }
+  to {
+    width: 0px;
+  }
 }
 
 #typing-effect {
@@ -34,8 +40,10 @@
 }
 
 #typing-container {
-  min-height: 60px; /* Set a minimum height for typing container */
-  margin-bottom: 20px; /* Add margin to separate elements */
+  min-height: 60px;
+  /* Set a minimum height for typing container */
+  margin-bottom: 20px;
+  /* Add margin to separate elements */
 }
 
 
@@ -46,43 +54,46 @@
 }
 
 
-#welcome{
+#welcome {
   font-size: 80px;
   margin-top: 60px;
   margin-left: 45px;
   color: #ffffff;
 }
 
-#contact{
-    border-radius: 50px;
-    text-align: center;
-    font-size: 1.5vw;
-    background-color: #ffffff ;
-    color: #000080;
-    border-bottom: 0 solid;
-    padding: 15px 25px;
-    margin-right: 150px;
-    float: right;
-    margin-top: 200px;
-    font-weight: 700;
+#contact {
+  border-radius: 50px;
+  text-align: center;
+  font-size: 1.5vw;
+  background-color: #ffffff;
+  color: #000080;
+  border-bottom: 0 solid;
+  padding: 15px 25px;
+  margin-right: 150px;
+  float: right;
+  margin-top: 200px;
+  font-weight: 700;
+  text-decoration: none;
 }
 
-.all{
+.all {
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed;
   background-size: 100% 100%;
   padding: 0.7px;
 }
 
-#contact:hover{
+#contact:hover {
   background-color: #ffffff;
   opacity: 70%;
+  text-decoration: none;
 }
 
 
-.elemnts{
+.elemnts {
   margin-left: 100px;
-  min-height: 360px; /* Set a minimum height */
+  min-height: 360px;
+  /* Set a minimum height */
 }
 
 
@@ -138,7 +149,7 @@
 
 /* why us */
 
-.whyus{
+.whyus {
   text-align: center;
   color: #000080;
   font-weight: bold;
@@ -155,13 +166,17 @@
   margin-right: 50px;
   margin-top: 50px;
   margin-bottom: 60px;
-  height: auto; /* Remove height:auto */
+  height: auto;
+  /* Remove height:auto */
 }
 
 .column {
-  display: flex; /* Add display:flex */
-  flex-direction: column; /* Set flex-direction to column */
-  align-items: center; /* Center align items vertically */
+  display: flex;
+  /* Add display:flex */
+  flex-direction: column;
+  /* Set flex-direction to column */
+  align-items: center;
+  /* Center align items vertically */
   width: 25%;
   padding: 40px;
 }
@@ -230,24 +245,27 @@
 }
 
 
-.aboutrow{
+.aboutrow {
   display: flex;
   justify-content: center;
   margin-top: 50px;
   margin-bottom: 60px;
-  height: auto; /* Remove height:auto */
+  height: auto;
+  /* Remove height:auto */
 }
 
-.aboutclm{
-  display: flex; /* Add display:flex */
-  flex-direction: column; /* Set flex-direction to column */
-  align-items: center; /* Center align items vertically */
+.aboutclm {
+  display: flex;
+  /* Add display:flex */
+  flex-direction: column;
+  /* Set flex-direction to column */
+  align-items: center;
+  /* Center align items vertically */
   width: 50%;
   padding: 4px;
 }
 
-.aboutimg{
+.aboutimg {
   width: 35vw;
   border-radius: 10%;
 }
-

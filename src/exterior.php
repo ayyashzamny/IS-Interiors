@@ -2,8 +2,16 @@
 // Include your database connection file
 include("Backend/db_connection.php");
 
-// Fetch all products from the database
-$query = "SELECT * FROM products";
+// Initialize search query
+$searchQuery = "";
+
+// Check if the search form was submitted
+if (isset($_GET['search'])) {
+    $searchQuery = $_GET['search'];
+}
+
+// Fetch all products from the database based on the search query
+$query = "SELECT * FROM products WHERE category = 'Exterior' AND name LIKE '%$searchQuery%' ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 
 // Check if there are any products
@@ -23,7 +31,7 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exteriors</title>
+    <title>Interiors</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/HeaderFooter.css">
@@ -40,11 +48,9 @@ mysqli_close($conn);
     <link rel="mask-icon" href="img/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-
 </head>
 
 <body id="body">
-
     <!--Page up Button-->
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class='bx bxs-to-top'></i></button>
     <script>
@@ -80,20 +86,19 @@ mysqli_close($conn);
         <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="shop.php">Awards</a>
-            <a href="./interior.php">Interiors</a>
+            <a href="./interior.php" >Interiors</a>
             <a href="./exterior.php" class="active">Exteriors</a>
             <a href="contactus.php">Contact Us</a>
         </nav>
     </header>
 
     <section class="section-main">
-
         <!-- heading -->
-        <h2 class="head">Exteriors</h2>
+        <h2 class="head">Interiors</h2>
 
         <!-- search bar -->
         <div class="bar">
-            <input type="search" placeholder="Search...">
+            <input type="search" id="search" placeholder="Search..." onkeyup="searchProducts()">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
@@ -108,12 +113,11 @@ mysqli_close($conn);
         </div>
 
         <!-- products -->
-        <div class="contain">
+        <div class="contain" id="productContainer">
             <?php foreach ($productData as $product) : ?>
-
                 <div class="card">
                     <img src="./uploads/<?php echo $product['image']; ?>" class="card-img-top" alt="...">
-                    <div class="card-body ">
+                    <div class="card-body">
                         <h5 class="card-title"><?php echo $product['name']; ?></h5>
                         <p class="card-text">LKR <?php echo $product['price']; ?>.00</p>
                         <div style="display:flex; justify-content: right;">
@@ -121,17 +125,24 @@ mysqli_close($conn);
                         </div>
                     </div>
                 </div>
-
             <?php endforeach; ?>
-
         </div>
-
     </section>
 
     <script>
-        // for more details
+        function searchProducts() {
+            const query = document.getElementById('search').value;
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'searchExteriorProducts.php?search=' + query, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('productContainer').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+
         function moreDetails(productId) {
-            // AJAX request to fetch product details based on ID
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'fetchProductDetails.php?id=' + productId, true);
             xhr.onreadystatechange = function() {
@@ -151,7 +162,6 @@ mysqli_close($conn);
     <footer class="footer">
         <div class="footer-main">
             <div class="footer-sub">
-
                 <div class="links">
                     <div>
                         <h2>Quick Links</h2>
@@ -183,13 +193,11 @@ mysqli_close($conn);
                         <p>077 445 5567</p>
                     </div>
                 </div>
-
             </div>
 
             <div class="footer-sub">
                 <iframe class="Footer-logo" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15831.50037014867!2d80.4526826!3d7.255054!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3158bd97a1d73%3A0x32aa2317c79f7dd6!2sIS%20Interiors!5e0!3m2!1sen!2slk!4v1707720419858!5m2!1sen!2slk" width="40rem" height="20rem" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-
         </div>
     </footer>
 </body>

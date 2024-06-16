@@ -10,8 +10,6 @@ if (!isset($_SESSION['Uname'])) {
 
 ?>
 
-
-
 <?php
 // Include your database connection file
 include("Backend/db_connection.php");
@@ -30,8 +28,6 @@ if ($result) {
 // Close the database connection
 mysqli_close($conn);
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +53,6 @@ mysqli_close($conn);
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.min.css">
-
 </head>
 
 <body>
@@ -88,53 +83,46 @@ mysqli_close($conn);
 
     <?php foreach ($certificatesData as $certificate) : ?>
 
-        <div class="container">
-            <div class="row justify-content-center  my-4">
-                <div class="col-md-8">
-                    <div class="form-container">
-                        <form>
-                            <div class="form-group row">
-                                <label for="name" class="col-sm-3 col-form-label">Name:</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="name" value="<?php echo $certificate['name']; ?>" readonly>
-                                </div>
+    <div class="container">
+        <div class="row justify-content-center  my-4">
+            <div class="col-md-8">
+                <div class="form-container">
+                    <form>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="name" value="<?php echo $certificate['name']; ?>" readonly>
                             </div>
-                            <div class="form-group row">
-                                <label for="email" class="col-sm-3 col-form-label">Email:</label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="email" value="<?php echo $certificate['email']; ?>" readonly>
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-3 col-form-label">Email:</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="email" value="<?php echo $certificate['email']; ?>" readonly>
                             </div>
-                            <div class="form-group row">
-                                <label for="phone" class="col-sm-3 col-form-label">Phone:</label>
-                                <div class="col-sm-9">
-                                    <input type="tel" class="form-control" id="phone" value="<?php echo $certificate['phone']; ?>" readonly>
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-sm-3 col-form-label">Phone:</label>
+                            <div class="col-sm-9">
+                                <input type="tel" class="form-control" id="phone" value="<?php echo $certificate['phone']; ?>" readonly>
                             </div>
-                            <div class="form-group row">
-                                <label for="inquiry" class="col-sm-3 col-form-label">Inquiry:</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="inquiry" value="<?php echo $certificate['inquiry']; ?>" readonly>
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inquiry" class="col-sm-3 col-form-label">Inquiry:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inquiry" value="<?php echo $certificate['inquiry']; ?>" readonly>
                             </div>
-<<<<<<< HEAD
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-9 offset-sm-3">
-                                <!-- <button type="button" class="btn btn-danger float-right">Delete</button> -->
-                                <a class="btn btn-danger float-right" href="javascript:void(0);" onclick="confirmDelete(<?php echo $certificate['cot_id']; ?>)">Delete</a>
-=======
-                            <div class="form-group row">
-                                <div class="col-sm-9 offset-sm-3">
-                                    <a class="btn btn-danger float-right" href="BackEnd/deleteInq.php?id=<?php echo $certificate['cot_id']; ?>" onclick="return confirm('Are you sure you want to delete this ?')">Delete</a>
-                                </div>
->>>>>>> b4d416eadd53b612ae750604c889db0796c2fb3e
+                                <a class="btn btn-danger float-right" href="#" onclick="confirmDelete(<?php echo $certificate['cot_id']; ?>)">Delete</a>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
-            <?php endforeach; ?>
             </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.all.min.js"></script>
     <script>
@@ -157,14 +145,11 @@ mysqli_close($conn);
         }
     </script>
 
-
-
-
-
-            <!-- Bootstrap JS and Popper.js -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-            <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 
 </body>
 
